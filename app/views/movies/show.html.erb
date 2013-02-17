@@ -1,0 +1,27 @@
+<ul>
+  <li><%= link_to(@movie.title, @movie) %></li>
+  <li><%= image_tag(@movie.poster) %></li>
+  <li><%= @movie.year %></li>
+  <li><%= @movie.rated %></li>
+  <li><%= @movie.released %></li>
+  <li><%= @movie.runtime %></li>
+  <li><%= @movie.director %></li>
+  <li><%= @movie.imdbID %></li>
+  <li><%= @movie.plot %></li>
+  <li>Added on: <%= @movie.created_at.strftime('%A: %B %e, %Y at %l:%m %P') %></li>
+  <li>Updated on: <%= @movie.updated_at.strftime('%A: %B %e, %Y at %l:%m %P') %></li>
+</ul>
+<br>
+<br>
+<%= link_to 'edit', edit_movie_path(@movie) %>
+<%= link_to 'delete', @movie, :method => :delete, :confirm => 'Are you sure you want to DELETE this MOVIE?' %>
+
+<br>
+
+<ul>
+<% @movie.actors.each do |actor| %>
+ <li><%= link_to(actor.name, actor) %></li>
+<li><%= image_tag(actor.image) %></li>
+<% end %>
+</ul>
+

@@ -1,0 +1,41 @@
+<%= form_for @movie do |f| %>
+  <%= f.label :collection_id, "Select :  " %>
+  <%= f.select :collection_id, Collection.all.map{|collection| [collection.name, collection.id]}, :include_blank => true, :prompt => "Reelz Name" %>
+<br>
+<%= f.text_field :title, :autofocus => true %>
+<%= f.label :title, "Title" %>
+<br>
+<%= f.text_field :year %>
+<%= f.label :year, "Year" %>
+<br>
+<%= f.text_field :rated %>
+<%= f.label :rated, "Rated" %>
+<br>
+<%= f.text_field :released %>
+<%= f.label :released, "Released" %>
+<br>
+<%= f.text_field :runtime %>
+<%= f.label :runtime, "Runtime" %>
+<br>
+<%= f.text_field :director %>
+<%= f.label :director, "Director" %>
+<br>
+<%= f.text_field :imdbID %>
+<%= f.label :imdbID, "imdbID" %>
+<br>
+<%= f.text_field :plot %>
+<%= f.label :plot, "Plot" %>
+<br>
+<%= f.text_field :poster %>
+<%= f.label :poster, "Image URL" %>
+<br>
+<% Actor.order(:name).each do |actor| %>
+<span><%= actor.name %></span>
+<%= check_box_tag 'movie[actor_ids][]', actor.id, actor.in?(@movie.actors) %>
+<br>
+<%= image_tag(actor.image) %>
+<br>
+<% end %>
+<br>
+<%= f.submit %>
+<% end %>

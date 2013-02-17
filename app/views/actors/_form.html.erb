@@ -1,0 +1,21 @@
+<%= form_for @actor do |f| %>
+  <%= f.label :movie_id, "Select :  " %>
+  <%= f.select :movie_ids, Movie.all.map{|movie| [movie.title, movie.id]}, :include_blank => true, :prompt => "Movie Title" %>
+<br>
+<%= f.text_field :name, :autofocus => true %>
+<%= f.label :name, "Name" %>
+<br>
+<%= f.text_field :birthplace %>
+<%= f.label :birthplace, "Hometown" %>
+<br>
+<%= f.text_field :dob %>
+<%= f.label :dob, "Date of Birth" %>
+<br>
+<%= f.text_field :dod %>
+<%= f.label :dod, "Date of Death" %>
+<br>
+<%= f.text_field :image %>
+<%= f.label :image, "Image URL" %>
+<br>
+<%= f.submit %>
+<% end %>

@@ -1,0 +1,8 @@
+<%= link_to('New Actor', new_actor_path) %>
+
+<% @actors.each do |actor| %>
+<ul>
+  <li><%= link_to(actor.name, actor) %></li>
+  <li><%= image_tag(actor.image) %></li>
+</ul>
+<% end %>

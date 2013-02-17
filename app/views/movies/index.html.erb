@@ -1,0 +1,8 @@
+<%= link_to('New Movie', new_movie_path) %>
+
+<% @movies.each do |movie| %>
+<ul>
+  <li><%= link_to(movie.title, movie) %></li>
+  <li><%= image_tag(movie.poster) %></li>
+</ul>
+<% end %>

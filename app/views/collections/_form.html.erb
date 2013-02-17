@@ -1,0 +1,17 @@
+<%= form_for @collection do |f| %>
+<%= f.text_field :name, :autofocus => true %>
+<%= f.label :name, "Name" %>
+<br>
+<%= f.text_field :description %>
+<%= f.label :description, "Description" %>
+<br>
+<% Movie.order(:title).each do |movie| %>
+<%= movie.title %>
+<%= check_box_tag 'collection[movie_ids][]', movie.id, movie.in?(@collection.movies.to_a) %>
+<br>
+<%= image_tag(movie.poster) %>
+<br>
+<% end %>
+<br>
+<%= f.submit %>
+<% end %>
