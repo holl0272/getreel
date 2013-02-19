@@ -1,0 +1,54 @@
+<!-- Main Page Content and Sidebar -->
+<br>
+<br>
+<br>
+  <div class="row">
+
+    <!-- Contact Details -->
+    <div class="nine columns">
+
+      <h3>Looking to Add an Actor but can't find them?</h3>
+      <p>Powered by the IMDb, the world's most popular and authoritative source for movie, TV and celebrity content, simply type in the name of an actor you want to find you will be returned your query, hyperlinked to their dedicated IMDB page; making adding actors your <em>Reelz</em> even easier!</p><br>
+
+      <dl class="contained tabs">
+        <dd class="active"><a href="#contactForm">Actor Search</a></dd>
+
+      </dl>
+
+      <ul class="tabs-content contained">
+        <li id="contactFormTab" class="active">
+          <div class="row collapse"><br>
+            <%= form_tag '/actor/:id', :method => 'get' do %>
+            <div class="two columns"><label class="inline">Actor's Name:</label></div>
+            <div class="seven columns"><%= text_field_tag 'query' %>
+          </div>
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input id="btn" class="radius button" name="commit" type="submit" value="  Search  ">
+          <% end %>
+        </li>
+
+
+
+    </div>
+
+    <!-- End Contact Details -->
+
+
+    <!-- Sidebar -->
+
+    <div class="three columns">
+
+      <h6>&nbsp&nbsp&nbspActor Search Powered By</h6>
+
+      <!-- Clicking this placeholder fires the mapModal Reveal modal -->
+      <p>
+        <%= image_tag("imdb.jpg") %><br />
+      </p>
+
+    </div>
+
+    <!-- End Sidebar -->
+  </div>
+<br>
+<br>
+<br>
+  <!-- End Main Content and Sidebar -->

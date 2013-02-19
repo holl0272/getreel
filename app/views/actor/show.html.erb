@@ -1,0 +1,62 @@
+
+<!-- Main Page Content and Sidebar -->
+<br>
+<br>
+<br>
+  <div class="row">
+
+    <!-- Contact Details -->
+    <div class="nine columns">
+
+      <h3>Actor Search Results</h3>
+      <p>Thank you IMDb, that was fast! Below you will find a hyperlink to your query.  Go ahead and click it, and don't worry, you'll be redirected to a new broser window so no need to navigate back to your <em>Reel</em>!</p><br>
+
+      <dl class="contained tabs">
+        <dd class="active"><a href="#contactForm">Actor Search</a></dd>
+
+      </dl>
+
+      <ul class="tabs-content contained">
+        <li id="contactFormTab" class="active">
+          <div class="row collapse">
+
+            <div class="two columns"><label class="inline">Actor's Name:</label></div>
+            <div class="three columns">
+          </div>
+          <a href="http://www.imdb.com<%= @url %>" id="btn" class="round large button" target="_blank"><%= "#{params[:query]}" %> </a>
+
+
+
+        </li>
+
+
+
+    </div>
+
+    <!-- End Contact Details -->
+
+
+    <!-- Sidebar -->
+
+    <div class="three columns">
+
+      <h6>&nbsp&nbsp&nbspActor Search Powered By</h6>
+
+      <!-- Clicking this placeholder fires the mapModal Reveal modal -->
+      <p>
+        <%= image_tag("imdb.jpg") %><br />
+      </p>
+
+    </div>
+
+    <!-- End Sidebar -->
+  </div>
+<br>
+<br>
+<br>
+  <!-- End Main Content and Sidebar -->
+
+
+
+
+

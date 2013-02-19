@@ -1,17 +1,63 @@
-<ul>
-  <li><%= @collection.name %></li>
-  <li>Description: <%= @collection.description %></li>
-  <li>Created on: <%= @collection.created_at.strftime('%A: %B %e, %Y at %l:%m %P') %></li>
-  <li>Updated on: <%= @collection.updated_at.strftime('%A: %B %e, %Y at %l:%m %P') %></li>
-</ul>
-<br>
-<br>
-<%= link_to 'edit', edit_collection_path(@collection) %>
-<%= link_to 'delete', @collection, :method => :delete, :confirm => 'Are you sure you want to DELETE this COLLECTION?' %>
-<br>
-<ul>
-  <% @collection.movies.each do |movie| %>
-  <li><%= link_to(movie.title, movie) %></li>
-  <li><%= image_tag(movie.poster) %></li>
-</ul>
-<% end %>
+<div class="row">
+    <div class="twelve columns">
+
+      <!-- Header Content -->
+
+        <div class="row">
+          <div class="twelve columns">
+
+            <h3 class="show-for-small"><%= @collection.name %><hr/></h3>
+
+            <div class="panel">
+              <h4 class="hide-for-small"><%= @collection.name %><hr/></h4>
+              <h5 class="subheader">
+              <strong>Description: </strong><br><%= @collection.description %><br><br>
+              <strong>You first created your <em>Reel</em> on:</strong>&nbsp  <%= @collection.created_at.strftime('%A, %B %e, %Y at %l:%m %P') %><br>
+              <strong>You pulled this <em>Reel</em> off the Rack and updated it on:</strong>&nbsp <%= @collection.updated_at.strftime('%A, %B %e, %Y at %l:%m %P') %>
+              </h5>
+            </div>
+
+         <div class="row">
+            <div class="six mobile-two columns">
+              <div class="panel">
+                <h5>Click the button to Edit your <em>Reel</em>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= link_to 'Edit Reel', edit_collection_path(@collection), "class" => "small button" %></a>
+                <h6 class="subheader">Not a fan your <em>Reel</em> name? Just hit the Edit button, it wont bite.</h6>
+
+              </div>
+            </div>
+
+            <div class="six mobile-two columns">
+              <div class="panel">
+                <h5>Don't Delete your <em>Reel</em>...&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= link_to 'Delete Reel', @collection, :method => :delete, "class" => "small button", :confirm => 'Your mouse must have slipped, you sure you want to DELETE this Reel?' %></a>
+                <h6 class="subheader">You can skip this text box, nothing to read here; that link is broken!</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- End Header Content -->
+
+
+      <!-- Thumbnails -->
+
+        <div class="row">
+          <div class="twelve show-for-small columns">
+          <h3>Header</h3><hr>
+          </div>
+          <% @collection.movies.each do |movie| %>
+          <div class="three mobile-two columns">
+            <div id="poster">
+           <%= image_tag(movie.poster) %>
+         </div>
+            <div class="panel">
+              <p><%= link_to(movie.title, movie) %></p>
+            </div>
+          </div>
+          <% end %>
+        </div>
+
+      <!-- End Thumbnails -->
+
+    </div>
+  </div>

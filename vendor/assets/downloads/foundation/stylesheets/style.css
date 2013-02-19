@@ -1,0 +1,30 @@
+@import url(http://fonts.googleapis.com/css?family=Cinzel);
+
+#logo {
+  font-family: 'Cinzel', serif;
+  font-size: 48px;
+}
+#logo img{
+height: 50px;
+}
+
+em {
+    font-family: 'Cinzel', serif;
+}
+
+#poster img {
+border: 3px solid black;
+}
+
+.show img {
+  margin-left: 75px;
+height: 440px;
+}
+
+#btn {
+  font-size: 16px;
+}
+
+#fix {
+  line-height: 30px;
+}

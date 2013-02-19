@@ -1,15 +1,56 @@
-<ul>
-  <li><%= link_to(@actor.name, @actor) %></li>
-  <li><%= image_tag(@actor.image) %></li>
-  <li><%= @actor.birthplace %></li>
-  <li><%= @actor.dob %></li>
-  <li><%= @actor.dod %></li>
-  <li>Added on: <%= @actor.created_at.strftime('%A: %B %e, %Y at %l:%m %P') %></li>
-  <li>Updated on: <%= @actor.updated_at.strftime('%A: %B %e, %Y at %l:%m %P') %></li>
-</ul>
-<br>
-<br>
-<%= link_to 'edit', edit_actor_path(@actor) %>
-<%= link_to 'delete', @actor, :method => :delete, :confirm => 'Are you sure you want to DELETE this ACTOR?' %>
+<div class="row">
+  <div class="twelve columns">
+
+    <!-- Header Content -->
+
+    <div class="row">
+
+      <div class="six columns">
+<div class="show">
+        <%= image_tag(@actor.image) %><br>
+</div>
+      </div>
 
 
+      <div class="six columns">
+
+        <h3 class="show-for-small"><%= @actor.name %><hr/></h3>
+
+        <div class="panel">
+          <h4 class="hide-for-small"><%= @actor.name %><hr/></h4>
+          <h5 class="subheader">
+            <strong>Birthplace:</strong> <%= @actor.birthplace %><br>
+            <strong>Date of Birth:</strong> <%= @actor.dob = @actor.dob.strftime('%B %d, %Y') if @actor.dob.present?  %><br>
+            <strong>Passed Away on:</strong> <%= @actor.dod = @actor.dod.strftime('%B %d, %Y') if @actor.dod.present? %><br><br>
+            <strong>Actor Added on:</strong><br>
+            <%= @actor.created_at.strftime('%A, %B %e, %Y at %l:%m %P') %><br>
+            <strong>Updated Actor on:</strong><br>
+            <%= @actor.updated_at.strftime('%A, %B %e, %Y at %l:%m %P') %>
+              </h5>
+          </div>
+
+          <div class="row">
+            <div class="six mobile-two columns">
+              <div class="panel">
+                <h5>EDIT this Actor</h5>
+                <h6 class="subheader">Click below to Edit this Bio</h6>
+                <%= link_to 'Edit Actor', edit_actor_path(@actor), "class" => "small button" %></a>
+              </div>
+            </div>
+
+            <div class="six mobile-two columns">
+              <div class="panel">
+                <h5>DELETE this Actor</h5>
+                <h6 class="subheader">Click to Delete this Actor</h6>
+                <%= link_to 'Delete Actor', @actor, :method => :delete, "class" => "small button", :confirm => 'Are you sure you want to DELETE this Actor?' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- End Header Content -->
+
+
+    </div>
+  </div>

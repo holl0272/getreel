@@ -1,1 +1,128 @@
-This is home
+<!-- First Band (Slider) -->
+  <!-- The Orbit slider is initialized at the bottom of the page by calling .orbit() on #slider -->
+
+  <div class="row">
+    <div class="twelve columns">
+      <div id="slider">
+        <%= image_tag("wall1.jpg") %>
+        <%= image_tag("wall2.jpg") %>
+        <%= image_tag("wall3.jpg") %>
+        <%= image_tag("wall4.jpg") %>
+        <%= image_tag("wall5.jpg") %>
+        <%= image_tag("wall6.jpg") %>
+        <%= image_tag("wall7.jpg") %>
+        <%= image_tag("wall8.jpg") %>
+        <%= image_tag("wall9.jpg") %>
+        <%= image_tag("wall10.jpg") %>
+      </div>
+
+      <hr />
+    </div>
+  </div>
+
+
+  <!-- Three-up Content Blocks -->
+
+  <div class="row">
+
+    <div class="four columns">
+      <%= link_to(image_tag("film1.jpg"), new_collection_path) %>
+      <h4>Create and View <em>Reelz</em></h4>
+
+      <p>Before getting <em>Reel</em>, please take our advice and click the image above to create your own <em>Reel</em>.  You’ll be amazed in less than a few clicks at the powerful features and extensive content that can be found in the <em>Reelz</em> Rack., and you’ll be sorry if you don’t have a <em>Reel</em> of your own to save your favorites.<br><br>
+
+      And we know that one <em>Reel</em> wont be enough, trust us, so we’ve given you the freedom to add as many <em>Reelz</em> as you’d like – one of anything is never enough, let’s get <em>Reel</em>!
+</p>
+    </div>
+
+    <div class="four columns">
+      <%= link_to(image_tag("film3.jpg"), movies_path) %>
+      <h4>Add and Edit your Movies</h4>
+      <p>Adding movies to your <em>Reelz</em> couldn’t be easier.  Click the image above to access the extensive collection of movies loaded in our database.  If you’re still enjoying the moving pictures and forget you read this, you can access all the sites' links through the nave bar found on the top of the screen.</p>
+    </div>
+
+    <div class="four columns">
+      <%= link_to(image_tag("film2.jpg"), actors_path) %>
+      <h4>Find Your Favorite Actor</h4>
+      <p>Through the advanced search function built into this site’s design, by simply typing a name our site will track down every instance of your query within the IMDB and return all the information you will ever want or need to know about an actor.  And after tracking down your favorite film star, you have the option to add them to your <em>Reel</em> and include them in your movies as well.</p>
+    </div>
+
+  </div>
+
+
+  <!-- Call to Action Panel -->
+  <br>
+  <div class="row">
+    <div class="twelve columns">
+
+      <div class="panel">
+        <h4>Stop wasting your time, start getting <span style="font-size: 30px;"><em>Reel</em></span></h4>
+
+        <div class="row">
+          <div class="nine columns">
+            <p>When we're not watchinging movies, we're updateing <strong><em>Get Reel</em></strong> with new features...<br>
+            If your <em>Reelz</em> Rack begins to collect dusts, please send us your sugestions and feedback!</p>
+          </div>
+          <div class="three columns">
+            <a href="mailto:eric@f-robots.com" target="_blank" alt="eric@f-robots.com" class="radius button right">Contact the <em>Reel</em> Rack</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Included JS Files (Uncompressed) -->
+  <!--
+
+  <script src="javascripts/jquery.js"></script>
+
+  <script src="javascripts/jquery.foundation.mediaQueryToggle.js"></script>
+
+  <script src="javascripts/jquery.foundation.forms.js"></script>
+
+  <script src="javascripts/jquery.event.move.js"></script>
+
+  <script src="javascripts/jquery.event.swipe.js"></script>
+
+  <script src="javascripts/jquery.foundation.reveal.js"></script>
+
+  <script src="javascripts/jquery.foundation.orbit.js"></script>
+
+  <script src="javascripts/jquery.foundation.navigation.js"></script>
+
+  <script src="javascripts/jquery.foundation.buttons.js"></script>
+
+  <script src="javascripts/jquery.foundation.tabs.js"></script>
+
+  <script src="javascripts/jquery.foundation.tooltips.js"></script>
+
+  <script src="javascripts/jquery.foundation.accordion.js"></script>
+
+  <script src="javascripts/jquery.placeholder.js"></script>
+
+  <script src="javascripts/jquery.foundation.alerts.js"></script>
+
+  <script src="javascripts/jquery.foundation.topbar.js"></script>
+
+  <script src="javascripts/jquery.foundation.joyride.js"></script>
+
+  <script src="javascripts/jquery.foundation.clearing.js"></script>
+
+  <script src="javascripts/jquery.foundation.magellan.js"></script>
+
+  -->
+
+  <!-- Included JS Files (Compressed)
+  <script src="javascripts/jquery.js"></script>
+  <script src="javascripts/foundation.min.js"></script>
+
+  Initialize JS Plugins
+  <script src="javascripts/app.js"></script>
+-->
+  <script type="text/javascript">
+     $(window).load(function() {
+         $('#slider').orbit();
+     });
+  </script>

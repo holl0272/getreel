@@ -1,0 +1,97 @@
+
+
+
+        <!-- Main Page Content and Sidebar -->
+ <%#= form_for @movie do |f| %>
+<div class="row">
+     <!-- Sidebar -->
+
+        <div class="three columns">
+<div id="poster">
+          <h5><img id="poster" src='<%= @movie['Poster'] %>'></h5>
+</div>
+          <!-- Clicking this placeholder fires the mapModal Reveal modal -->
+         &nbsp&nbsp&nbsp<input id="btn" class="panel callout radius" name="commit" type="submit" value="  Add this Movie  "><br><br>
+        &nbsp&nbsp&nbsp<a class="secondary button" href="/movies" id="btn" name="commit" type="submit">&nbsp&nbsp&nbsp<strong>Cancel Search</strong>&nbsp&nbsp</a>
+
+        </div>
+
+        <!-- End Sidebar -->
+
+
+  <!-- Contact Details -->
+  <div class="nine columns">
+<br>
+    <dl class="contained tabs">
+      <dd class="active"><a href="#">Movie Information</a></dd>
+    </dl>
+
+    <ul class="tabs-content contained">
+      <li id="contactFormTab" class="active">
+        <!-- Row Layout for forms -->
+
+
+          <div class="row">
+            <div class="seven columns">
+              <label>Movie Title</label>
+
+              <%= form_tag({:controller => "movies", :action => "create"}, :method =>"post") do %>
+              <%= text_field_tag(@movie, @movie['Title']) %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="three columns">
+              <label>Year</label>
+              <%= text_field_tag(@movie, @movie['Year']) %>
+            </div>
+            <div class="three columns">
+              <label>Release Date</label>
+              <%= text_field_tag(@movie, @movie['Released']) %>
+            </div>
+            <div class="three columns">
+              <label>Rated</label>
+              <%= text_field_tag(@movie, @movie['Rated']) %>
+            </div>
+            <div class="three columns">
+              <label>Runtime</label>
+              <%= text_field_tag(@movie, @movie['Runtime']) %>
+            </div>
+          </div>
+            <div class="row">
+             <div class="four columns">
+               <label>Director</label>
+               <%= text_field_tag(@movie, @movie['Director'])%>
+             </div>
+             <div class="four columns">
+               <label>imdb ID</label>
+               <%= text_field_tag(@movie, @movie['imdbID'])%>
+             </div>
+           </div>
+           <div class="row">
+            <div class="twelve columns">
+              <label>Poster URL</label>
+              <%= text_field_tag(@movie, @movie['Poster'])%>
+            </div>
+          </div>
+          <div class="row">
+            <div class="twelve columns">
+              <label>Plot</label>
+              <%= text_area_tag(@movie, @movie['Plot'], :size => "44/20") %>
+            </div>
+          </div>
+
+
+        <!-- End Contact Details -->
+
+
+
+      </div>
+
+      <!-- End Main Content and Sidebar -->
+
+
+
+
+        <% end %>
+
+

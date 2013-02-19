@@ -1,27 +1,99 @@
-<ul>
-  <li><%= link_to(@movie.title, @movie) %></li>
-  <li><%= image_tag(@movie.poster) %></li>
-  <li><%= @movie.year %></li>
-  <li><%= @movie.rated %></li>
-  <li><%= @movie.released %></li>
-  <li><%= @movie.runtime %></li>
-  <li><%= @movie.director %></li>
-  <li><%= @movie.imdbID %></li>
-  <li><%= @movie.plot %></li>
-  <li>Added on: <%= @movie.created_at.strftime('%A: %B %e, %Y at %l:%m %P') %></li>
-  <li>Updated on: <%= @movie.updated_at.strftime('%A: %B %e, %Y at %l:%m %P') %></li>
-</ul>
-<br>
-<br>
-<%= link_to 'edit', edit_movie_path(@movie) %>
-<%= link_to 'delete', @movie, :method => :delete, :confirm => 'Are you sure you want to DELETE this MOVIE?' %>
+<div class="row">
+    <div class="twelve columns">
 
-<br>
+      <!-- Header Content -->
 
-<ul>
-<% @movie.actors.each do |actor| %>
- <li><%= link_to(actor.name, actor) %></li>
-<li><%= image_tag(actor.image) %></li>
-<% end %>
-</ul>
+        <div class="row">
 
+          <div class="six columns">
+            <div class="poster">
+              <div class="show">
+              <div id="poster">
+            <%= image_tag(@movie.poster) %>
+          </div>
+        </div>
+            </div>
+          </div>
+
+
+          <div class="six columns">
+
+            <h3 class="show-for-small"><%= @movie.title %><hr/></h3>
+
+            <div class="panel">
+              <h4 class="hide-for-small"><%= @movie.title %><hr/></h4>
+              <div id="movieshow">
+              <h5 class="subheader">
+                <strong>Rated:</strong> <%= @movie.rated %><br>
+                <strong>Year:</strong> <%= @movie.year %><br>
+                <strong>Runtime:</strong> <%= @movie.runtime %><br>
+                <strong>Director:</strong> <%= @movie.director %><br>
+                <strong>imdb ID:</strong> <%= @movie.imdbID %><br>
+                <strong>Added:</strong> <%= @movie.created_at.strftime('%A, %B %e, %Y at %l:%m %P') %>
+                <strong>Updated:</strong> <%= @movie.updated_at.strftime('%A: %B %e, %Y at %l:%m %P') %>
+              </h5>
+            </div>
+            </div>
+
+         <div class="row">
+            <div class="six mobile-two columns">
+              <div class="panel">
+                <h5>EDIT this Movie</h5>
+                <h6 class="subheader">Click to Edit the Movie</h6>
+                <%= link_to 'Edit Movie', edit_movie_path(@movie), "class" => "small button" %></a>
+              </div>
+            </div>
+
+            <div class="six mobile-two columns">
+              <div class="panel">
+                <h5>DELETE this Movie</h5>
+                <h6 class="subheader">Click to Delete this Movie</h6>
+                <%= link_to 'Delete Movie', @movie, :method => :delete, "class" => "small button", :confirm => 'Are you sure you want to DELETE this Movie?' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- End Header Content -->
+
+
+      <!-- Search Bar -->
+
+        <div class="row">
+
+          <div class="twelve columns">
+            <div class="radius panel">
+
+          <h5 id="fix">Plot:</h5>
+          <%= @movie.plot %>
+
+          </div>
+          </div>
+
+        </div>
+
+      <!-- End Search Bar -->
+
+
+      <!-- Thumbnails -->
+
+        <div class="row">
+
+          <div class="twelve show-for-small columns">
+          <h3>Header</h3><hr>
+          </div>
+          <% @movie.actors.each do |actor| %>
+          <div class="three mobile-two columns">
+            <%= image_tag(actor.image) %>
+            <div class="panel">
+              <p><%= link_to(actor.name, actor) %></p>
+            </div>
+          </div>
+          <% end %>
+        </div>
+
+      <!-- End Thumbnails -->
+
+    </div>
+  </div>

@@ -1,8 +1,51 @@
-<%= link_to('New Actor', new_actor_path) %>
+<div class="row">
+    <div class="twelve columns">
+      <div class="row">
 
-<% @actors.each do |actor| %>
-<ul>
-  <li><%= link_to(actor.name, actor) %></li>
-  <li><%= image_tag(actor.image) %></li>
-</ul>
-<% end %>
+  <!-- Side Bar -->
+
+        <div class="four mobile-four columns">
+
+         <%= image_tag("film2.jpg") %>
+
+          <div class="hide-for-small panel">
+            <h3>Star Struck</h3>
+            <h5 class="subheader">Welcome to the <em>Reel</em> Rack's Actor page!  To view any of the Actors' information, simply click on their Name to get their bio.
+            </h5>
+          </div>
+          <br>
+           <div align="center"><h6><%= link_to 'Click here to add a New Actor', new_actor_path, "class" => "panel callout radius", "id" => "btn"%></h6>
+          </div>
+
+        </div>
+
+    <!-- End Side Bar -->
+
+
+    <!-- Thumbnails -->
+
+        <div class="eight columns">
+          <div class="row">
+              <% @actors.each do |actor| %>
+            <div class="four mobile-two columns">
+              <%= image_tag(actor.image) %>
+              <div class="panel">
+                <h5><%= link_to(actor.name, actor) %></h5>
+                <br>
+              </div>
+            </div>
+            <% end %>
+
+    <!-- End Thumbnails -->
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+

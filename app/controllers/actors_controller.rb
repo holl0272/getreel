@@ -25,4 +25,5 @@ class ActorsController < ApplicationController
     actor.delete
     redirect_to(actors_path)
   end
+
 end

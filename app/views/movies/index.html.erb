@@ -1,8 +1,53 @@
-<%= link_to('New Movie', new_movie_path) %>
+<div class="row">
+    <div class="twelve columns">
+      <div class="row">
 
-<% @movies.each do |movie| %>
-<ul>
-  <li><%= link_to(movie.title, movie) %></li>
-  <li><%= image_tag(movie.poster) %></li>
-</ul>
-<% end %>
+  <!-- Side Bar -->
+
+        <div class="four mobile-four columns">
+
+          <%= image_tag("film3.jpg") %>
+
+          <div class="hide-for-small panel">
+            <h3>The <em>Reel</em> Rack</h3>
+            <h5 class="subheader">Welcome to the <em>Reel</em> Rack!  Simply click on the Title of a movie to get more information about any of these great films.
+            </h5>
+          </div>
+          <br>
+           <div align="center"><h6><%= link_to 'Click here to add a New Movie', new_movie_path, "class" => "panel callout radius", "id" => "btn"%></h6>
+          </div>
+
+
+        </div>
+
+    <!-- End Side Bar -->
+
+
+    <!-- Thumbnails -->
+
+        <div class="eight columns">
+          <div class="row">
+              <% @movies.each do |movie| %>
+            <div class="four mobile-two columns">
+              <div id="poster">
+              <%= image_tag(movie.poster) %>
+            </div>
+              <div class="panel">
+                <h5><%= link_to(movie.title, movie) %></h5>
+                <br>
+              </div>
+            </div>
+            <% end %>
+
+    <!-- End Thumbnails -->
+
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+

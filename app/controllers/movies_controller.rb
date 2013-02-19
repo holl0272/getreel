@@ -25,4 +25,5 @@ class MoviesController < ApplicationController
     movie.delete
     redirect_to(movies_path)
   end
+
 end

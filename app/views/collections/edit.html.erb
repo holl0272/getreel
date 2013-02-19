@@ -1,2 +1,85 @@
-Edit Collection
-<%= render :partial => 'form' %>
+<div class="row">
+    <div class="twelve columns">
+
+     <!-- Managed By -->
+
+            <div class="twelve columns">
+              <div class="panel">
+                <div class="row">
+<div class="twelve columns">
+
+<%= form_for @collection do |f| %>
+    <legend><strong>You can update your <em>Reel</em> by changing it's name and or its description below:</strong></legend>
+<br>
+    <label><%= f.label :name, "Name" %></label>
+    <%= f.text_field :name, :autofocus => true %>
+
+<label><%= f.label :description, "Description" %></label>
+    <%= f.text_field :description %>
+</div>
+</div>
+
+
+                </div>
+              </div>
+            </div>
+
+    <!-- End Managed By -->
+
+
+      <div class="row">
+
+  <!-- Side Bar -->
+
+        <div class="four mobile-four columns">
+
+          <%= image_tag("film1.jpg") %>
+
+          <div class="hide-for-small panel">
+            <h3>You can still add Films to your <em>Reel</em>!</h3>
+            <h5 class="subheader">Before updating your <em>Reel</em> and putting it back on the Rack, take another look at the extensive collection of movies; I'm sure there are few more you'd like to add.  <br><br>Remember, just check the box next to their titles to include them in your <em>Reel</em>.
+            </h5>
+          </div>
+        <div align="center">
+          <input id="btn" class="panel callout radius" name="commit" type="submit" value="Put your Reel back on the Rack">
+          </div>
+
+
+        </div>
+
+    <!-- End Side Bar -->
+
+
+    <!-- Thumbnails -->
+
+        <div class="eight columns">
+          <div class="row">
+            <% Movie.order(:title).each do |movie| %>
+
+            <div class="four mobile-two columns">
+              <div id="poster">
+              <%= image_tag(movie.poster) %>
+            </div>
+              <div class="panel">
+                <h5><%= check_box_tag 'collection[movie_ids][]', movie.id, movie.in?(@collection.movies.to_a) %><%= movie.title %></h5>
+              </div>
+            </div>
+        <% end %>
+
+
+
+          </div>
+        </div>
+      </div>
+
+<% end %>
+
+
+    </div>
+  </div>
+
+
+
+
+
+

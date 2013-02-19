@@ -1,2 +1,84 @@
-New Actor
-<%= render :partial => 'form' %>
+<!-- Main Page Content and Sidebar -->
+<%= form_for @actor do |f| %>
+<div class="row">
+     <!-- Sidebar -->
+
+        <div class="three columns">
+
+
+        <!-- <div class="four mobile-four columns"> -->
+
+          <%= image_tag("film2.jpg") %>
+
+          <div class="hide-for-small panel">
+            <h3>Any Movies</h3>
+            <h5 class="subheader">Before adding an Actor, be sure you assign it to one of your Movies.
+            </h5>
+          </div>
+        <div align="center">
+          <input id="btn" class="panel callout radius" name="commit" type="submit" value="Add this New Actor">
+          </div>
+
+<!--
+        </div> -->
+
+        </div>
+
+        <!-- End Sidebar -->
+  <!-- Contact Details -->
+  <div class="nine columns">
+
+    <h3>Add an Actor to your <em>Reel</em></h3>
+    <p>Is your <em>Reel</em> feeling a little light?  While it's great to add all of your movies, your <em>Reel</em> just isn't complete without including all of your favorite actors as well.  The best part is you can add an Actor to every one of their movies on your <em>Reel</em>!</p>
+
+    <dl class="contained tabs">
+      <dd class="active"><a href="#">Actor Information</a></dd>
+    </dl>
+
+    <ul class="tabs-content contained">
+      <li id="contactFormTab" class="active">
+        <!-- Row Layout for forms -->
+
+          <div class="four columns">
+            <label><%= f.label :movie_id, "Select this Actor's Movie:  " %></label>
+              <%= f.select :movie_ids, Movie.all.map{|movie| [movie.title, movie.id]}, :include_blank => true, :prompt => "Movie Title" %>
+          </div>
+          <div class="row">
+            <div class="seven columns">
+              <label>Actor's Name</label>
+              <%= f.text_field :name, :autofocus => true %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="six columns">
+              <label>Birthplace</label>
+              <%= f.text_field :birthplace %>
+            </div>
+            <div class="three columns">
+              <label>Date of Birth</label>
+              <%= f.text_field :dob, "value" => "YYYY-MM-DD" %>
+            </div>
+            <div class="three columns">
+              <label>Passed Away on</label>
+              <%= f.text_field :dod, "value" => "YYYY-MM-DD" %>
+            </div>
+          </div>
+           <div class="row">
+            <div class="twelve columns">
+              <label>Image URL</label>
+              <%= f.text_field :image %>
+            </div>
+          </div>
+
+        <!-- End Contact Details -->
+
+
+
+      </div>
+
+      <!-- End Main Content and Sidebar -->
+
+
+
+        <% end %>
+

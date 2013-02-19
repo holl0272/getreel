@@ -1,2 +1,109 @@
-Edit Movie
-<%= render :partial => 'form' %>
+<!-- Main Page Content and Sidebar -->
+ <%= form_for @movie do |f| %>
+<div class="row">
+     <!-- Sidebar -->
+
+        <div class="three columns">
+<div id="poster">
+          <h5><%= image_tag(@movie.poster) %></h5>
+</div><br>
+          <!-- Clicking this placeholder fires the mapModal Reveal modal -->
+         <input id="btn" class="panel callout radius" name="commit" type="submit" value="  Update this Movie  ">
+
+        </div>
+
+        <!-- End Sidebar -->
+  <!-- Contact Details -->
+  <div class="nine columns">
+<br>
+    <dl class="contained tabs">
+      <dd class="active"><a href="#">Movie Information</a></dd>
+    </dl>
+
+    <ul class="tabs-content contained">
+      <li id="contactFormTab" class="active">
+        <!-- Row Layout for forms -->
+
+
+          <div class="four columns">
+            <label><%= f.label :collection_id, "Select this Movie's Reel:  " %></label>
+            <%= f.select :collection_id, Collection.all.map{|collection| [collection.name, collection.id]}, :include_blank => true, :prompt => "Reelz Name" %>
+          </div>
+          <div class="row">
+            <div class="seven columns">
+              <label>Movie Title</label>
+              <%= f.text_field :title, :autofocus => true %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="three columns">
+              <label>Year</label>
+              <%= f.text_field :year %>
+            </div>
+            <div class="three columns">
+              <label>Release Date</label>
+              <%= f.text_field :released %>
+            </div>
+            <div class="three columns">
+              <label>Rated</label>
+              <%= f.text_field :rated %>
+            </div>
+            <div class="three columns">
+              <label>Runtime</label>
+              <%= f.text_field :runtime %>
+            </div>
+          </div>
+            <div class="row">
+             <div class="four columns">
+               <label>Director</label>
+               <%= f.text_field :director %>
+             </div>
+             <div class="four columns">
+               <label>imdb ID</label>
+               <%= f.text_field :imdbID %>
+             </div>
+           </div>
+           <div class="row">
+            <div class="twelve columns">
+              <label>Poster URL</label>
+              <%= f.text_field :poster %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="twelve columns">
+              <h5 id="fix">Plot</hr>
+              <%= f.text_field :plot %>
+            </div>
+          </div>
+
+
+        <!-- End Contact Details -->
+
+
+
+      </div>
+
+      <!-- End Main Content and Sidebar -->
+
+
+      <!-- Thumbnails -->
+
+      <div class="row">
+        <div class="twelve show-for-small columns">
+          <h3>Header</h3><hr>
+        </div>
+        <% Actor.order(:name).each do |actor| %>
+        <div class="three mobile-two columns">
+          <%= image_tag(actor.image) %>
+          <div class="panel">
+            <p><%= actor.name %>
+              <%= check_box_tag 'movie[actor_ids][]', actor.id, actor.in?(@movie.actors) %></p>
+            </div>
+          </div>
+          <% end %>
+        </div>
+
+        <!-- End Thumbnails -->
+
+        <% end %>
+

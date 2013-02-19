@@ -1,0 +1,55 @@
+
+  <!-- Main Page Content and Sidebar -->
+<br>
+<br>
+<br>
+  <div class="row">
+
+    <!-- Contact Details -->
+    <div class="nine columns">
+
+      <h3>Looking to Add a Movie but can't find it?</h3>
+      <p>Powered by the Open Movie Database API by Brian Fritz, simply type in the title of any movie you want and you will be instantly redirected to a page with all the pertinent information populated; making adding movies your <em>Reelz</em> even easier!</p><br>
+
+      <dl class="contained tabs">
+        <dd class="active"><a href="#contactForm">Movie Search</a></dd>
+
+      </dl>
+
+      <ul class="tabs-content contained">
+        <li id="contactFormTab" class="active">
+          <div class="row collapse">
+            <%= form_tag 'movie/show', :method => 'get' do %><br>
+            <div class="two columns"><label class="inline">Movie Title:</label></div>
+            <div class="seven columns"><%= text_field_tag :title %>
+          </div>
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input id="btn" class="radius button" name="commit" type="submit" value="  Search  ">
+          <% end %>
+        </li>
+
+
+
+    </div>
+
+    <!-- End Contact Details -->
+
+
+    <!-- Sidebar -->
+
+    <div class="three columns">
+
+      <h6>&nbsp&nbsp&nbspMovie Search Powered By</h6>
+
+      <!-- Clicking this placeholder fires the mapModal Reveal modal -->
+      <p>
+        <%= image_tag("omdbapi.jpg") %><br />
+      </p>
+
+    </div>
+
+    <!-- End Sidebar -->
+  </div>
+<br>
+<br>
+<br>
+  <!-- End Main Content and Sidebar -->
